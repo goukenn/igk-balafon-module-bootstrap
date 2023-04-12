@@ -1,0 +1,39 @@
+<?php
+// @author: C.A.D. BONDJE DOUE
+// @file: %modules%/igk/bootstrap/.module.pinc.php
+// @date: 20220110 14:49:11
+namespace igk\bootstrap;
+
+use IGK\System\Html\Dom\HtmlItemBase;
+
+$_CL_DIR = $this->getClassesDir();
+require_once $_CL_DIR ."/ModuleExtension.php";
+require_once $_CL_DIR ."/Constants.php";
+require_once $_CL_DIR ."/Components/ComponentBase.php";
+require_once $_CL_DIR ."/System/Html/NodeExtensions.php";
+
+
+$reg("initDoc", [ModuleExtension::class, "initDoc"]);
+
+/**
+ * register extension for the context 
+ */
+HtmlItemBase::RegisterMacros(Constants::WEB_CONTEXT, \igk\bootstrap\System\Html\NodeExtensions::class);
+
+// + module definition
+return [
+//------------------------------------------------
+// define entry name space
+//
+"entry_NS"=>"igk\bootstrap",
+
+//------------------------------------------------
+// version
+//
+"version"=>"1.0",
+
+//-------------------------------------------------
+// author
+//
+"author"=>"C.A.D. BONDJE DOUE"
+];
